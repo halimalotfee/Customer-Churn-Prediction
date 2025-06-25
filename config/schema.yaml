@@ -1,0 +1,70 @@
+columns:
+  - customerID: category
+  - gender: category
+  - SeniorCitizen: int
+  - Partner: category
+  - Dependents: category
+  - tenure: int
+  - PhoneService: category
+  - MultipleLines: category
+  - InternetService: category
+  - OnlineSecurity: category
+  - OnlineBackup: category
+  - DeviceProtection: category
+  - TechSupport: category
+  - StreamingTV: category
+  - StreamingMovies: category
+  - Contract: category
+  - PaperlessBilling: category
+  - PaymentMethod: category
+  - MonthlyCharges: float
+  - TotalCharges: float
+  - Churn: category
+numerical_columns:
+  - tenure
+  - MonthlyCharges
+  - TotalCharges
+  - SeniorCitizen
+categorical_columns:
+  - customerID
+  - gender
+  - Partner
+  - Dependents
+  - PhoneService
+  - MultipleLines
+  - InternetService
+  - OnlineSecurity
+  - OnlineBackup
+  - DeviceProtection
+  - TechSupport
+  - StreamingTV
+  - StreamingMovies
+  - Contract
+  - PaperlessBilling
+  - PaymentMethod
+  - Churn
+drop_columns:
+  - customerID
+num_features:
+  - tenure
+  - MonthlyCharges
+  - TotalCharges
+or_columns:
+  - SeniorCitizen
+  - Partner
+  - Dependents
+  - PhoneService
+  - PaperlessBilling
+  - Churn
+oh_columns:
+  - gender
+  - MultipleLines
+  - InternetService
+  - OnlineSecurity
+  - OnlineBackup
+  - DeviceProtection
+  - TechSupport
+  - StreamingTV
+  - StreamingMovies
+  - Contract
+  - PaymentMethod
