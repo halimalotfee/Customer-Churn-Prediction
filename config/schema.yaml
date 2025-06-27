@@ -21,7 +21,6 @@ columns:
   - TotalCharges: float
   - Churn: category
 numerical_columns:
-  - tenure
   - MonthlyCharges
   - TotalCharges
   - SeniorCitizen
@@ -29,6 +28,7 @@ categorical_columns:
   - customerID
   - gender
   - Partner
+  - tenure
   - Dependents
   - PhoneService
   - MultipleLines
@@ -42,11 +42,10 @@ categorical_columns:
   - Contract
   - PaperlessBilling
   - PaymentMethod
-  - Churn
+
 drop_columns:
   - customerID
 num_features:
-  - tenure
   - MonthlyCharges
   - TotalCharges
 or_columns:
@@ -55,7 +54,7 @@ or_columns:
   - Dependents
   - PhoneService
   - PaperlessBilling
-  - Churn
+  - tenure
 oh_columns:
   - gender
   - MultipleLines
@@ -68,3 +67,6 @@ oh_columns:
   - StreamingMovies
   - Contract
   - PaymentMethod
+transform_columns:
+  - MonthlyCharges
+  - TotalCharges

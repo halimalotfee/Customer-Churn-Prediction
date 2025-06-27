@@ -1,0 +1,52 @@
+grid_search:
+  class: GridSearchCV
+  module: sklearn.model_selection
+  params:
+    cv: 3
+    verbose: 3
+
+model_selection:
+  module_0:
+    class: CatBoostClassifier
+    module: catboost
+    params:
+      learning_rate: 0.05
+      l2_leaf_reg: 1
+      iterations: 300
+      depth: 10
+    search_param_grid:
+      learning_rate:
+        - 0.05
+        - 0.1
+      l2_leaf_reg:
+        - 1
+        - 2
+      iterations:
+        - 300
+      depth:
+        - 10
+        - 12
+
+  module_1:
+    class: XGBClassifier
+    module: xgboost
+    params:
+      learning_rate: 0.1
+      max_depth: 7
+      n_estimators: 100
+      min_child_weight: 1
+      subsample: 1.0
+    search_param_grid:
+      learning_rate:
+        - 0.05
+      max_depth:
+        - 7
+        - 10
+      n_estimators:
+        - 100
+        - 150
+      min_child_weight:
+        - 1
+        - 2
+      subsample:
+        - 1.0
