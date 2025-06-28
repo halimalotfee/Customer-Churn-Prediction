@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Churn Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container-fluid">
+      <h4 class="mx-3 my-2">Customer Churn Prediction</h4>
+    </div>
+  </nav>
+
+  <section>
+    <div class="container mt-4">
+      <form action="/" method="post">
+        <legend>Customer Information</legend>
+
+        <!-- Categorical Fields -->
+        <div class="mb-3">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="gender" name="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option>Female</option>
+            <option>Male</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="SeniorCitizen">Senior Citizen (0 = No, 1 = Yes)</label>
+          <select class="form-control" id="SeniorCitizen" name="SeniorCitizen" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="Partner">Partner</label>
+          <select class="form-control" id="Partner" name="Partner" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="Dependents">Dependents</label>
+          <select class="form-control" id="Dependents" name="Dependents" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="tenure">Tenure (in months)</label>
+          <input type="number" class="form-control" id="tenure" name="tenure" min="0" max="100" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="PhoneService">Phone Service</label>
+          <select class="form-control" id="PhoneService" name="PhoneService" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="MultipleLines">Multiple Lines</label>
+          <select class="form-control" id="MultipleLines" name="MultipleLines" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>No phone service</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="InternetService">Internet Service</label>
+          <select class="form-control" id="InternetService" name="InternetService" required>
+            <option value="" disabled selected>Select</option>
+            <option>DSL</option>
+            <option>Fiber optic</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="OnlineSecurity">Online Security</label>
+          <select class="form-control" id="OnlineSecurity" name="OnlineSecurity" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>No internet service</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="OnlineBackup">Online Backup</label>
+          <select class="form-control" id="OnlineBackup" name="OnlineBackup" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>No internet service</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="DeviceProtection">Device Protection</label>
+          <select class="form-control" id="DeviceProtection" name="DeviceProtection" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>No internet service</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="TechSupport">Tech Support</label>
+          <select class="form-control" id="TechSupport" name="TechSupport" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>No internet service</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="StreamingTV">Streaming TV</label>
+          <select class="form-control" id="StreamingTV" name="StreamingTV" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>No internet service</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="StreamingMovies">Streaming Movies</label>
+          <select class="form-control" id="StreamingMovies" name="StreamingMovies" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>No internet service</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="Contract">Contract</label>
+          <select class="form-control" id="Contract" name="Contract" required>
+            <option value="" disabled selected>Select</option>
+            <option>Month-to-month</option>
+            <option>One year</option>
+            <option>Two year</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="PaperlessBilling">Paperless Billing</label>
+          <select class="form-control" id="PaperlessBilling" name="PaperlessBilling" required>
+            <option value="" disabled selected>Select</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="PaymentMethod">Payment Method</label>
+          <select class="form-control" id="PaymentMethod" name="PaymentMethod" required>
+            <option value="" disabled selected>Select</option>
+            <option>Electronic check</option>
+            <option>Mailed check</option>
+            <option>Bank transfer (automatic)</option>
+            <option>Credit card (automatic)</option>
+          </select>
+        </div>
+
+        <!-- Numerical -->
+        <div class="mb-3">
+          <label for="MonthlyCharges">Monthly Charges</label>
+          <input type="number" step="0.01" class="form-control" id="MonthlyCharges" name="MonthlyCharges" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="TotalCharges">Total Charges</label>
+          <input type="number" step="0.01" class="form-control" id="TotalCharges" name="TotalCharges" required />
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-primary" type="submit">Predict Churn</button>
+        </div>
+      </form>
+
+      {% if context %}
+      <div class="text-center text-success mt-4">
+        <h4>Prediction Result: <strong>{{ context }}</strong></h4>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+</body>
+</html>
