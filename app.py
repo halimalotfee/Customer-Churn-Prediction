@@ -130,5 +130,4 @@ async def predictChurnClient(request: Request):
 
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("app:app", host="127.0.0.1", port=8080, reload=True)
+    app_run(app, host=APP_HOST, port=APP_PORT)
