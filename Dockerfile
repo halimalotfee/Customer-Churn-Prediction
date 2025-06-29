@@ -14,7 +14,8 @@ WORKDIR /app
 
 # Copier le contenu de ton projet dans l’image
 COPY . /app
-
+# Copier le fichier .env
+COPY .env .env
 # Installer les dépendances Python
 RUN pip install --no-cache-dir -r requirements.txt
 
