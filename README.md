@@ -21,22 +21,23 @@ It covers the full ML pipeline, including:
 
 ## 📁 Project Structure
 
-├── data/ # Dataset (Telco Customer Churn)
+├── data/                     # Dataset (Telco Customer Churn)
 ├── notebooks/
-│ ├── 01_EDA.ipynb # Exploratory analysis
-│ ├── 02_Preprocessing.ipynb
-│ ├── 03_Model_Training.ipynb
+│   ├── 01_EDA.ipynb          # Exploratory analysis
+│   ├── 02_Preprocessing.ipynb
+│   ├── 03_Model_Training.ipynb
 ├── src/
-│ ├── preprocessing.py # Feature engineering, encoding, scaling
-│ ├── train.py # Model training script
-│ ├── inference.py # Predict function
-│ ├── model.pkl # Saved model
+│   ├── preprocessing.py       # Feature engineering, encoding, scaling
+│   ├── train.py               # Model training script
+│   ├── inference.py           # Predict function
+│   ├── model.pkl              # Saved model
 ├── api/
-│ ├── main.py # FastAPI server
-│ ├── requirements.txt
+│   ├── main.py                # FastAPI server
+│   ├── requirements.txt
 ├── app/
-│ ├── app.py # Streamlit interface
+│   ├── app.py                 # Streamlit interface
 ├── deployment/
-│ ├── dockerfile
-│ ├── deploy.sh
-│ ├── instructions.md # AWS deployment guide
+│   ├── dockerfile
+│   ├── deploy.sh
+│   ├── instructions.md        # AWS deployment guide
+
